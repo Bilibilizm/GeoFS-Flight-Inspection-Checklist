@@ -64,15 +64,3 @@ To use the GeoFS Flight Inspection Checklist,you can open the console by clickin
 
 
 
-**4. Joining the Community:**
-
-•Below the checklist, there is an option to join our QQ group for further discussion and support.
-
-
-
-
-**Troubleshooting:**
-
-If the script does not appear or function as expected, ensure that your userscript manager is working correctly and that the script is properly installed. You may also check for updates to the script or seek assistance in the QQ group.
-
-This document provides a clear and concise guide for users to understand what the GeoFS Flight Inspection Checklist is, its features, and how to use it effectively. You can copy this text into a Word document and adjust the formatting as needed.
