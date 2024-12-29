@@ -7,7 +7,7 @@ The GeoFS Flight Inspection Checklist is a user-friendly script designed to enha
 
 •Shift+F to open and close the menu
 
-•Shift+B to achieve spoiler pre positioning
+•Shift to achieve spoiler pre positioning
 
 
 **Features:**
