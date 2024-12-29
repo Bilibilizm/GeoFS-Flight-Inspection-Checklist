@@ -5,15 +5,20 @@ The GeoFS Flight Inspection Checklist is a user-friendly script designed to enha
 
 
 Shift+F to open and close the menu
+
 Shift+B to achieve spoiler pre positioning
 
 
 **Features:**
 
 ·**Multilingual Support**: The checklist is available in multiple languages, including English, Simplified Chinese, Traditional Chinese, Japanese, and French.
+
 **Customizable Transparency and Font Size**: Users can adjust the opacity and font size of the checklist to their preference.
+
 ·**Drag-and-Drop Functionality**: Items can be rearranged easily within the checklist for personalized organization.
+
 ·**Interactive Checkboxes**: Each item on the checklist comes with an interactive checkbox for tracking completion.
+
 ·**Add and Delete Items**: Users can add new items or delete existing ones as needed.
 
 
@@ -36,11 +41,17 @@ Your userscript manager should automatically detect the script and prompt you to
 **2. Using the Checklist:**
 
 ·Once installed, the checklist can be accessed by pressing Shift + F on your keyboard while in GeoFS. This will toggle the checklist menu on and off.
+
 ·To Adjust Transparency: Use the slider under the "Opacity" label to adjust the background opacity of the checklist.
+
 ·To Change Font Size: Use the slider under the "Font Size" label to adjust the text size of the checklist.
+
 ·To Add a New Item: Click on the "Add Item" button at the end of each section, enter the new item in the prompt, and it will be added above the button.
+
 ·To Delete an Item: Click the "×" button next to the item you wish to remove.
+
 ·To Drag and Drop Items: Click and hold an item to drag it to a new position within the section.
+
 ·To Check Items Off: Click on the checkbox next to an item to mark it as completed.
 
 
