@@ -2,7 +2,7 @@
 // @name         GeoFS Flight Inspection Checklist
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  try to take over the world!
+// @description  Opening the menu through F conflicts with releasing the flaps. Please change the shortcut key for 'F release flaps' to another key position in the settings!!!
 // @author       zm
 // @match        https://www.geo-fs.com/geofs.php?v=3.9
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geo-fs.com
