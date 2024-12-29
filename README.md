@@ -28,11 +28,8 @@ Tutorial
 
 **1. Installation:**
 
-To use the GeoFS Flight Inspection Checklist, you will need to have a userscript manager extension installed in your browser. For Chrome, you can use Tampermonkey, and for Firefox, you can use Greasemonkey. Once you have the userscript manager installed, follow these steps:
+To use the GeoFS Flight Inspection Checklist,you can open the console by clicking Shift+Ctrl+I to import the main. js code.For most browsers, you can use Tampermonkey，copy the code directly.
 
-Navigate to the GitHub repository where the script is hosted.
-Click on the "Raw" button to view the raw script code.
-Your userscript manager should automatically detect the script and prompt you to install it. Follow the prompts to complete the installation.
 
 
 
