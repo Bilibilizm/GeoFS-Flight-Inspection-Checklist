@@ -1,5 +1,5 @@
 
-****GeoFS Flight Inspection Checklist UserScript****
+****GeoFS Flight Inspection Checklist****
 
 The GeoFS Flight Inspection Checklist is a user-friendly script designed to enhance the flight simulation experience in GeoFS by providing a comprehensive checklist for pilots. This script is a customizable, interactive checklist that covers all stages of a flight, from preparation to shutdown. It is created to ensure that pilots go through all necessary pre-flight, in-flight, and post-flight procedures, enhancing safety and realism in the virtual cockpit.
 
