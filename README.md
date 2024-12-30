@@ -5,7 +5,8 @@
 The GeoFS Flight Inspection Checklist is a user-friendly script designed to enhance the flight simulation experience in GeoFS by providing a comprehensive checklist for pilots. This script is a customizable, interactive checklist that covers all stages of a flight, from preparation to shutdown. It is created to ensure that pilots go through all necessary pre-flight, in-flight, and post-flight procedures, enhancing safety and realism in the virtual cockpit.
 
 
-•Shift+F to open and close the menu (**Opening the menu through F conflicts with releasing the flaps. Please change the shortcut key for 'F release flaps' to another key position in the settings!!!**)
+•Shift+F to open and close the menu![image](https://github.com/user-attachments/assets/6e766dad-a0e5-46cd-a07f-b021b39fc1b3)
+ (**Opening the menu through F conflicts with rycle flaps. Please change the shortcut key for 'F rycle flaps' to another key position in the settings!!!**)
 
 •Shift to achieve spoiler pre positioning
 
