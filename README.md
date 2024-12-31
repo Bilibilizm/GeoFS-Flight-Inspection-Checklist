@@ -36,7 +36,7 @@ To use the GeoFS Flight Inspection Checklist,you can open the console by clickin
 
 **2. Using the Checklist:**
 
-•Once installed, the checklist can be accessed by pressing Shift + F on your keyboard while in GeoFS. This will toggle the checklist menu on and off.
+•Once installed, the checklist can be accessed by pressing L on your keyboard while in GeoFS. This will toggle the checklist menu on and off.
 
 •To Adjust Transparency: Use the slider under the "Opacity" label to adjust the background opacity of the checklist.
 
