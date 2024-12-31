@@ -59,6 +59,6 @@ To use the GeoFS Flight Inspection Checklist,you can open the console by clickin
 •To switch languages, use the dropdown menu at the top of the checklist. The script will automatically update all labels and instructions to the selected language.
 
 
-
+Welcome to join our group to learn about the latest developments or provide suggestions: https://discord.gg/4dGHsNqgCH
 
 
