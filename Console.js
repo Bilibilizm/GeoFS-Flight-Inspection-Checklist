@@ -47,7 +47,7 @@
     const titles = {
         'zh-CN': {
             title: '飞行检查单',
-            author: '作者: 你的名字',
+            author: '作者: 開飛機のzm（ZMNB!)',
             opacityLabel: '透明度',
             fontSizeLabel: '字体大小',
             addItemLabel: '添加项目',
@@ -57,7 +57,7 @@
         },
         'zh-TW': {
             title: '飛行檢查單',
-            author: '作者: 你的名字',
+            author: '作者:  開飛機のzm',
             opacityLabel: '透明度',
             fontSizeLabel: '字體大小',
             addItemLabel: '添加項目',
@@ -67,7 +67,7 @@
         },
         'en': {
             title: 'Flight Checklist',
-            author: 'Author: Your Name',
+            author: 'Author:  開飛機のzm',
             opacityLabel: 'Opacity',
             fontSizeLabel: 'Font Size',
             addItemLabel: 'Add Item',
