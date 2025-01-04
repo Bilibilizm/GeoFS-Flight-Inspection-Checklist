@@ -7,7 +7,7 @@
 // @match        https://www.geo-fs.com/geofs.php?v=3.9
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geo-fs.com
 // @grant        none
-// ==/UserScript==
+
 
 (function () {
     'use strict';
@@ -56,33 +56,45 @@
     const titles = {
         'zh-CN': {
             title: '飞行检查单',
-            author: '作者: 你的名字',
+            author: '作者: 開飛機のzm（ZMNB!)',
             opacityLabel: '透明度',
             fontSizeLabel: '字体大小',
             addItemLabel: '添加项目',
             resetLabel: '重置',
             resetConfirm: '你确认清除它们吗？',
-            discordLink: '加入我们 Discord 群组（https://discord.gg/4dGHsNqgCH）以了解最新更新情况或提出要求。'
+            discordLink: '加入我们 Discord 群组',
+            lockLabel: '锁定菜单',
+            unlockLabel: '菜单已解锁',
+            versionLabel: '1.2 版本更新内容',
+            versionContent: '1. 按钮改为 L 来打开关闭菜单\n2. 修复了已知 bug\n3. 新增锁定功能，按 Shift + L 解锁菜单'
         },
         'zh-TW': {
             title: '飛行檢查單',
-            author: '作者: 你的名字',
+            author: '作者:  開飛機のzm',
             opacityLabel: '透明度',
             fontSizeLabel: '字體大小',
             addItemLabel: '添加項目',
             resetLabel: '重置',
             resetConfirm: '你確認清除它們嗎？',
-            discordLink: '加入我們 Discord 群組（https://discord.gg/4dGHsNqgCH）以了解最新更新情況或提出要求。'
+            discordLink: '加入我們 Discord 群組',
+            lockLabel: '鎖定菜單',
+            unlockLabel: '菜單已解鎖',
+            versionLabel: '1.2 版本更新內容',
+            versionContent: '1. 按鈕改為 L 來打開關閉菜單\n2. 修復了已知 bug\n3. 新增鎖定功能，按 Shift + L 解鎖菜單'
         },
         'en': {
             title: 'Flight Checklist',
-            author: 'Author: Your Name',
+            author: 'Author:  開飛機のzm',
             opacityLabel: 'Opacity',
             fontSizeLabel: 'Font Size',
             addItemLabel: 'Add Item',
             resetLabel: 'Reset',
             resetConfirm: 'Are you sure you want to clear all?',
-            discordLink: 'Join our Discord group (https://discord.gg/4dGHsNqgCH) to learn about the latest updates or make requests.'
+            discordLink: 'Join our Discord group',
+            lockLabel: 'Lock Menu',
+            unlockLabel: 'Menu Unlocked',
+            versionLabel: '1.2 Version Update',
+            versionContent: '1. Changed button to L for opening/closing menu\n2. Fixed known bugs\n3. Added lock feature, press Shift + L to unlock menu'
         }
     };
 
@@ -128,7 +140,6 @@
         // 使菜单可拖动
         let isDragging = false;
         let offsetX, offsetY;
-
         menu.addEventListener('mousedown', (e) => {
             if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'BUTTON') {
                 isDragging = true;
@@ -150,13 +161,13 @@
 
         // 标题
         const title = document.createElement('h3');
-        title.textContent = titles['en'].title; // 默认英文
+        title.textContent = titles[currentLang].title;
         title.style.marginBottom = '5px';
         menu.appendChild(title);
 
         // 作者信息
         const author = document.createElement('p');
-        author.textContent = titles['en'].author; // 默认英文
+        author.textContent = titles[currentLang].author;
         author.style.fontSize = '12px';
         author.style.color = '#666';
         author.style.marginBottom = '10px';
@@ -169,12 +180,13 @@
             <option value="zh-CN">简体中文</option>
             <option value="zh-TW">繁體中文</option>
         `;
+        languageSelect.value = currentLang;
         languageSelect.style.marginBottom = '10px';
         menu.appendChild(languageSelect);
 
         // 透明度调整
         const opacityLabel = document.createElement('p');
-        opacityLabel.textContent = `${titles['en'].opacityLabel}: 100%`; // 默认英文
+        opacityLabel.textContent = `${titles[currentLang].opacityLabel}: 100%`;
         opacityLabel.style.fontSize = '12px';
         opacityLabel.style.marginBottom = '5px';
         menu.appendChild(opacityLabel);
@@ -195,7 +207,7 @@
 
         // 字体大小调整
         const fontSizeLabel = document.createElement('p');
-        fontSizeLabel.textContent = `${titles['en'].fontSizeLabel}: 14px`; // 默认英文
+        fontSizeLabel.textContent = `${titles[currentLang].fontSizeLabel}: 14px`;
         fontSizeLabel.style.fontSize = '12px';
         fontSizeLabel.style.marginBottom = '5px';
         menu.appendChild(fontSizeLabel);
@@ -220,7 +232,7 @@
 
         // 重置按钮
         const resetButton = document.createElement('button');
-        resetButton.textContent = titles['en'].resetLabel; // 默认英文
+        resetButton.textContent = titles[currentLang].resetLabel;
         resetButton.style.marginTop = '10px';
         resetButton.style.width = '100%';
         resetButton.style.padding = '5px';
@@ -238,13 +250,48 @@
         });
         menu.appendChild(resetButton);
 
-        // Discord 加入群组链接
+        // 锁定按钮
+        const lockButton = document.createElement('button');
+        lockButton.textContent = titles[currentLang].lockLabel;
+        lockButton.style.marginTop = '10px';
+        lockButton.style.width = '100%';
+        lockButton.style.padding = '5px';
+        lockButton.style.backgroundColor = '#444';
+        lockButton.style.color = '#fff';
+        lockButton.style.border = 'none';
+        lockButton.style.borderRadius = '3px';
+        lockButton.style.cursor = 'pointer';
+        lockButton.addEventListener('click', () => {
+            isLocked = true;
+            menu.remove();
+            menu = null;
+            alert(titles[currentLang].unlockLabel);
+        });
+        menu.appendChild(lockButton);
+
+        // Discord 群组链接
         const discordLink = document.createElement('p');
-        discordLink.innerHTML = `<a href="https://discord.gg/4dGHsNqgCH" target="_blank" style="color: blue; text-decoration: underline;">${titles[languageSelect.value].discordLink}</a>`;
+        discordLink.innerHTML = `<a href="https://discord.gg/4dGHsNqgCH" target="_blank" style="color: blue; text-decoration: underline;">${titles[currentLang].discordLink}</a>`;
         discordLink.style.fontSize = '12px';
         discordLink.style.color = '#666';
         discordLink.style.marginTop = '10px';
         menu.appendChild(discordLink);
+
+        // 版本更新内容按钮
+        const versionButton = document.createElement('button');
+        versionButton.textContent = titles[currentLang].versionLabel;
+        versionButton.style.marginTop = '10px';
+        versionButton.style.width = '100%';
+        versionButton.style.padding = '5px';
+        versionButton.style.backgroundColor = '#444';
+        versionButton.style.color = '#fff';
+        versionButton.style.border = 'none';
+        versionButton.style.borderRadius = '3px';
+        versionButton.style.cursor = 'pointer';
+        versionButton.addEventListener('click', () => {
+            showVersionPopup(languageSelect.value);
+        });
+        menu.appendChild(versionButton);
 
         // 更新检查单内容
         function updateChecklist(lang) {
@@ -333,25 +380,93 @@
             opacityLabel.textContent = `${titles[lang].opacityLabel}: ${opacitySlider.value}%`;
             fontSizeLabel.textContent = `${titles[lang].fontSizeLabel}: ${fontSizeSlider.value}px`;
             resetButton.textContent = titles[lang].resetLabel;
+            lockButton.textContent = titles[lang].lockLabel;
             discordLink.innerHTML = `<a href="https://discord.gg/4dGHsNqgCH" target="_blank" style="color: blue; text-decoration: underline;">${titles[lang].discordLink}</a>`;
+            versionButton.textContent = titles[lang].versionLabel;
         }
 
-        // 初始加载英文
-        updateChecklist('en');
+        // 初始加载当前语言
+        updateChecklist(currentLang);
 
         // 语言切换事件
         languageSelect.addEventListener('change', () => {
-            updateChecklist(languageSelect.value);
+            currentLang = languageSelect.value;
+            updateChecklist(currentLang);
         });
 
         document.body.appendChild(menu);
         return menu;
     }
 
+// 显示版本更新内容弹窗
+function showVersionPopup(lang) {
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    popup.style.padding = '20px';
+    popup.style.borderRadius = '10px';
+    popup.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    popup.style.width = '400px';
+    popup.style.maxHeight = '80vh';
+    popup.style.overflowY = 'auto';
+    popup.style.fontFamily = 'Arial, sans-serif';
+    popup.style.color = '#333';
+    popup.style.zIndex = '1001'; // 确保弹窗在最上层
+
+    // 弹窗标题
+    const popupTitle = document.createElement('h3');
+    popupTitle.textContent = titles[lang].versionLabel;
+    popupTitle.style.marginBottom = '10px';
+    popup.appendChild(popupTitle);
+
+    // 弹窗内容
+    const popupContent = document.createElement('p');
+    popupContent.textContent = titles[lang].versionContent;
+    popupContent.style.whiteSpace = 'pre-line'; // 保留换行符
+    popup.appendChild(popupContent);
+
+    // 关闭按钮
+    const closeButton = document.createElement('button');
+    closeButton.textContent = titles[lang].resetLabel === '重置' ? '关闭' : 'Close';
+    closeButton.style.marginTop = '10px';
+    closeButton.style.width = '100%';
+    closeButton.style.padding = '5px';
+    closeButton.style.backgroundColor = '#444';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '3px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.addEventListener('click', () => {
+        popup.remove(); // 移除弹窗
+        overlay.remove(); // 移除遮罩层
+    });
+    popup.appendChild(closeButton);
+
+    // 添加到页面
+    document.body.appendChild(popup);
+
+    // 创建遮罩层
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.zIndex = '1000'; // 确保遮罩层在弹窗下方
+    overlay.addEventListener('click', () => {
+        popup.remove(); // 移除弹窗
+        overlay.remove(); // 移除遮罩层
+    });
+    document.body.appendChild(overlay);
+}
     // 通过 L 键打开/关闭菜单
     let menu = null;
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'L' || e.key === 'l') {
+        if ((e.key === 'L' || e.key === 'l') && !isLocked) {
             if (menu) {
                 menu.remove();
                 menu = null;
@@ -359,5 +474,26 @@
                 menu = createMenu();
             }
         }
+
+        // 通过 Shift + L 解锁菜单
+        if ((e.key === 'L' || e.key === 'l') && e.shiftKey) {
+            isLocked = false;
+            alert(titles[currentLang].unlockLabel); // 根据当前语言显示解锁提示
+        }
     });
+
+    // 默认语言
+    let currentLang = 'en';
+
+    // 锁定状态
+    let isLocked = false;
+
+    // 初始化
+    (function init() {
+        // 检查是否有保存的语言设置
+        const savedLang = localStorage.getItem('checklist_lang');
+        if (savedLang) {
+            currentLang = savedLang;
+        }
+    })();
 })();
