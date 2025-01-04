@@ -55,7 +55,7 @@
     // 标题和作者信息
     const titles = {
         'zh-CN': {
-            title: '飞行检查单',
+            title: 'GeoFS 飞行检查单',
             author: '作者: 開飛機のzm（ZMNB!)',
             opacityLabel: '透明度',
             fontSizeLabel: '字体大小',
@@ -69,7 +69,7 @@
             versionContent: '1. 按钮改为 L 来打开关闭菜单\n2. 修复了已知 bug\n3. 新增锁定功能，按 Shift + L 解锁菜单'
         },
         'zh-TW': {
-            title: '飛行檢查單',
+            title: 'GeoFS 飛行檢查單',
             author: '作者:  開飛機のzm',
             opacityLabel: '透明度',
             fontSizeLabel: '字體大小',
@@ -83,7 +83,7 @@
             versionContent: '1. 按鈕改為 L 來打開關閉菜單\n2. 修復了已知 bug\n3. 新增鎖定功能，按 Shift + L 解鎖菜單'
         },
         'en': {
-            title: 'Flight Checklist',
+            title: 'GeoFS Flight Checklist',
             author: 'Author:  開飛機のzm',
             opacityLabel: 'Opacity',
             fontSizeLabel: 'Font Size',
@@ -414,7 +414,7 @@ function showVersionPopup(lang) {
     popup.style.overflowY = 'auto';
     popup.style.fontFamily = 'Arial, sans-serif';
     popup.style.color = '#333';
-    popup.style.zIndex = '1001'; // 确保弹窗在最上层
+    popup.style.zIndex = '1001';
 
     // 弹窗标题
     const popupTitle = document.createElement('h3');
@@ -425,7 +425,7 @@ function showVersionPopup(lang) {
     // 弹窗内容
     const popupContent = document.createElement('p');
     popupContent.textContent = titles[lang].versionContent;
-    popupContent.style.whiteSpace = 'pre-line'; // 保留换行符
+    popupContent.style.whiteSpace = 'pre-line'; 
     popup.appendChild(popupContent);
 
     // 关闭按钮
@@ -440,8 +440,8 @@ function showVersionPopup(lang) {
     closeButton.style.borderRadius = '3px';
     closeButton.style.cursor = 'pointer';
     closeButton.addEventListener('click', () => {
-        popup.remove(); // 移除弹窗
-        overlay.remove(); // 移除遮罩层
+        popup.remove(); 
+        overlay.remove(); 
     });
     popup.appendChild(closeButton);
 
@@ -456,10 +456,10 @@ function showVersionPopup(lang) {
     overlay.style.width = '100%';
     overlay.style.height = '100%';
     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    overlay.style.zIndex = '1000'; // 确保遮罩层在弹窗下方
+    overlay.style.zIndex = '1000'; 
     overlay.addEventListener('click', () => {
-        popup.remove(); // 移除弹窗
-        overlay.remove(); // 移除遮罩层
+        popup.remove();
+        overlay.remove(); 
     });
     document.body.appendChild(overlay);
 }
@@ -478,7 +478,7 @@ function showVersionPopup(lang) {
         // 通过 Shift + L 解锁菜单
         if ((e.key === 'L' || e.key === 'l') && e.shiftKey) {
             isLocked = false;
-            alert(titles[currentLang].unlockLabel); // 根据当前语言显示解锁提示
+            alert(titles[currentLang].unlockLabel);
         }
     });
 
