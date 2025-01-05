@@ -6,6 +6,7 @@ The GeoFS Flight Inspection Checklist is a user-friendly script designed to enha
 
 
 •Open and close the menu by useing L
+
 •Unlock in locked state by using shift+L
 
 
